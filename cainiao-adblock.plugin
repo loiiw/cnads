@@ -1,5 +1,5 @@
 #!name = 菜鸟裹裹去广告
-#!desc = 屏蔽抓包中确认的第三方广告请求，不修改物流业务接口
+#!desc = 屏蔽抓包确认的广告请求并移除开屏与物流详情广告数据
 #!author = loiiw
 #!homepage = https://github.com/loiiw/cnads
 #!date = 2026-11-15
@@ -12,12 +12,15 @@ DOMAIN,sdk.1rtb.net,REJECT
 DOMAIN,entry-su1.ubixioe.com,REJECT
 DOMAIN,adx-cfg-u1.ubixioe.com,REJECT
 DOMAIN,win.gdt.qq.com,REJECT
+DOMAIN,netflow-mtop.cainiao.com,REJECT
+DOMAIN,nbcps-mtop.cainiao.com,REJECT
 URL-REGEX,^https?://[^/]+\.pglstatp-toutiao\.com/obj/ad-pattern/,REJECT
 URL-REGEX,^https?://lf-cdn-tos\.bytescm\.com/obj/static/ad/,REJECT
 
 [URL Rewrite]
 ^https:\/\/cn-lde-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.lde\.detail\.ordercode\.mailno\.rescode\.get\.cn\/1\.0 response-body-json-del data.globalData.formerModel.extPackageAttr.ADS_QUERY_PARAM
+^https:\/\/e2e-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch\/1\.0 response-body-json-jq 'del(.data.data.modalList.data.data.items[] | select((.adsShowDTOList // []) | length > 0))'
 
 [Mitm]
-hostname = cn-lde-mtop.cainiao.com
+hostname = cn-lde-mtop.cainiao.com,e2e-mtop.cainiao.com
 
