@@ -12,3 +12,9 @@ DOMAIN,entry-su1.ubixioe.com,REJECT
 DOMAIN,adx-cfg-u1.ubixioe.com,REJECT
 DOMAIN,win.gdt.qq.com,REJECT
 
+[URL Rewrite]
+^https:\/\/cn-lde-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.lde\.detail\.ordercode\.mailno\.rescode\.get\.cn\/1\.0 response-body-json-del data.globalData.formerModel.extPackageAttr.ADS_QUERY_PARAM
+
+[Mitm]
+hostname = cn-lde-mtop.cainiao.com
+

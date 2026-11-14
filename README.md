@@ -1,6 +1,6 @@
 # 菜鸟裹裹 Loon 去广告插件
 
-基于菜鸟裹裹 iOS 抓包中出现的第三方广告 SDK 请求，屏蔽穿山甲、1RTB、Ubixioe 和腾讯优量汇相关广告域名。规则只针对抓包中辨识出的广告服务域名，不拦截菜鸟物流接口。
+基于菜鸟裹裹 iOS 抓包中出现的第三方广告 SDK 请求和物流详情接口中的广告参数，屏蔽穿山甲、1RTB、Ubixioe 和腾讯优量汇相关广告，并从物流详情响应中删除广告查询参数。
 
 ## 安装
 
@@ -19,9 +19,10 @@ https://raw.githubusercontent.com/loiiw/cnads/main/cainiao-adblock.plugin
 | `entry-su1.ubixioe.com` | 广告 SDK 请求（`/mob/sdk/v2/endpoint`） |
 | `adx-cfg-u1.ubixioe.com` | Ubixioe 广告 SDK 初始化配置 |
 | `win.gdt.qq.com` | 腾讯广告 SDK 请求（`/win_notice.fcg`） |
+| `cn-lde-mtop.cainiao.com` | 物流详情响应中移除 `data.globalData.formerModel.extPackageAttr.ADS_QUERY_PARAM` |
 
-插件使用 Loon 的域名拒绝规则，不需要 MitM 证书。
+第三方广告域名使用 Loon 的域名拒绝规则。物流详情响应改写需要在 Loon 中启用 HTTPS 解密并信任 MitM 证书；插件声明了解密域名。
 
 ## 说明
 
-当前抓包证明这些 SDK 请求在该次会话中出现过，但不足以确认菜鸟所有页面的广告来源。由菜鸟自有接口返回或直接嵌入页面内容的广告不在此规则范围内；如果仍有广告，请提供广告出现页面附近的新抓包，以便补充精确规则。
+当前抓包没有记录开屏广告和首页购物信息流的实际投放接口，因此这两处还未覆盖。若仍看到广告，请从清空 Loon 请求记录后开始抓包，依次重启菜鸟（记录开屏）、停留并滚动首页购物信息流、打开包裹详情并滚动到广告区域，然后导出 HAR；这能帮助定位对应接口并补充精确规则。
