@@ -7,10 +7,13 @@
 
 [Rule]
 DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT
 DOMAIN,sdk.1rtb.net,REJECT
 DOMAIN,entry-su1.ubixioe.com,REJECT
 DOMAIN,adx-cfg-u1.ubixioe.com,REJECT
 DOMAIN,win.gdt.qq.com,REJECT
+URL-REGEX,^https?://[^/]+\.pglstatp-toutiao\.com/obj/ad-pattern/,REJECT
+URL-REGEX,^https?://lf-cdn-tos\.bytescm\.com/obj/static/ad/,REJECT
 
 [URL Rewrite]
 ^https:\/\/cn-lde-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.lde\.detail\.ordercode\.mailno\.rescode\.get\.cn\/1\.0 response-body-json-del data.globalData.formerModel.extPackageAttr.ADS_QUERY_PARAM

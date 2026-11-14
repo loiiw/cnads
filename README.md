@@ -15,10 +15,12 @@ https://raw.githubusercontent.com/loiiw/cnads/main/cainiao-adblock.plugin
 | 域名 | 抓包中的用途线索 |
 | --- | --- |
 | `api-access.pangolin-sdk-toutiao-b.com` | 穿山甲广告请求（`/api/ad/union/sdk/get_ads/`） |
+| `api-access.pangolin-sdk-toutiao.com` | 穿山甲开屏广告请求（`/api/ad/union/sdk/get_ads/`） |
 | `sdk.1rtb.net` | 广告请求（`/sdk/req_ad`） |
 | `entry-su1.ubixioe.com` | 广告 SDK 请求（`/mob/sdk/v2/endpoint`） |
 | `adx-cfg-u1.ubixioe.com` | Ubixioe 广告 SDK 初始化配置 |
 | `win.gdt.qq.com` | 腾讯广告 SDK 请求（`/win_notice.fcg`） |
+| `*.pglstatp-toutiao.com/obj/ad-pattern/`、`lf-cdn-tos.bytescm.com/obj/static/ad/` | 穿山甲广告素材和交互资源 |
 | `cn-lde-mtop.cainiao.com` | 物流详情响应中移除 `data.globalData.formerModel.extPackageAttr.ADS_QUERY_PARAM` |
 
 第三方广告域名使用 Loon 的域名拒绝规则。物流详情响应改写需要在 Loon 中启用 HTTPS 解密并信任 MitM 证书；插件声明了解密域名。
