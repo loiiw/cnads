@@ -1,0 +1,14 @@
+#!name = 菜鸟裹裹去广告
+#!desc = 屏蔽抓包中确认的第三方广告请求，不修改物流业务接口
+#!author = loiiw
+#!homepage = https://github.com/loiiw/cnads
+#!date = 2026-11-15
+#!tag = 菜鸟,去广告
+
+[Rule]
+DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN,sdk.1rtb.net,REJECT
+DOMAIN,entry-su1.ubixioe.com,REJECT
+DOMAIN,adx-cfg-u1.ubixioe.com,REJECT
+DOMAIN,win.gdt.qq.com,REJECT
+
