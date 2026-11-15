@@ -22,7 +22,7 @@ https://raw.githubusercontent.com/loiiw/cnads/main/cainiao-adblock.plugin
 | `win.gdt.qq.com` | 腾讯广告 SDK 请求（`/win_notice.fcg`） |
 | `*.pglstatp-toutiao.com/obj/ad-pattern/`、`lf-cdn-tos.bytescm.com/obj/static/ad/` | 穿山甲广告素材和交互资源 |
 | `cn-lde-mtop.cainiao.com` | 物流详情响应中移除 `data.globalData.formerModel.extPackageAttr.ADS_QUERY_PARAM` |
-| `e2e-mtop.cainiao.com` | 开屏页面响应中移除包含非空 `adsShowDTOList` 的弹层项目 |
+| `e2e-mtop.cainiao.com` | 开屏页面响应中移除带有 `adsShowDTOList` 或 `materialId` 的广告数据项 |
 | `netflow-mtop.cainiao.com`、`nbcps-mtop.cainiao.com` | 菜鸟广告展现与展示接口 |
 
 广告服务域名使用 Loon 的域名拒绝规则。物流详情和开屏响应改写需要在 Loon 中启用 HTTPS 解密并信任 MitM 证书；插件声明了解密域名。
