@@ -2,7 +2,7 @@
 #!desc = 屏蔽抓包确认的广告请求并移除开屏与物流详情广告数据
 #!author = loiiw
 #!homepage = https://github.com/loiiw/cnads
-#!date = 2026-11-15
+#!date = 2026-11-16
 #!tag = 菜鸟,去广告
 
 [Rule]
@@ -19,7 +19,7 @@ URL-REGEX,^https?://lf-cdn-tos\.bytescm\.com/obj/static/ad/,REJECT
 
 [URL Rewrite]
 ^https:\/\/cn-lde-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.lde\.detail\.ordercode\.mailno\.rescode\.get\.cn\/1\.0 response-body-json-del data.globalData.formerModel.extPackageAttr.ADS_QUERY_PARAM
-^https:\/\/e2e-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch\/1\.0 response-body-json-jq 'walk(if type == "array" then map(select(((.adsShowDTOList? // []) | length) == 0 and ((.materialId? // "") == ""))) else . end)'
+^https:\/\/e2e-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch\/1\.0 response-body-json-jq 'del(.data.data.modalList.data.data.items[] | select((.adsShowDTOList // []) | length > 0)) | walk(if type == "array" then map(select((.materialId? // "") == "")) else . end)'
 
 [Mitm]
 hostname = cn-lde-mtop.cainiao.com,e2e-mtop.cainiao.com
